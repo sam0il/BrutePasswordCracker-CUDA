@@ -1,19 +1,16 @@
 package org.example;
+import org.example.NativeCracker;
 
 public class Main {
     public static void main(String[] args) {
-        byte[] charset = "abcdefghijklmnopqrstuvwxyz".getBytes();
-       // byte[] targetHash = ...; // MD5 hash bytes of the password you want to crack
-        //byte[] foundPassword = new byte[maxPasswordLength + 1];
+        NativeCracker cracker = new NativeCracker();
 
-       // boolean found = CUDABruteForceEngine.crackPasswordCUDA(charset, charset.length, maxPasswordLength, targetHash, startIdx, maxIdx, foundPassword);
+        String hash = "0b44a09cc6a73edaec434d2db382028f"; // example MD5 of "aaa"
+        String charset = "abc";
+        int maxLength = 3;
+        String mask = "???";
 
-        if(false) {
-            String password = new String(foundPassword).trim();
-            System.out.println("Password found: " + password);
-        } else {
-            System.out.println("Password not found in this range.");
-        }
-
+        String result = cracker.crackBruteForce(hash, charset, maxLength, mask);
+        System.out.println("Cracked password: " + result);
     }
 }
