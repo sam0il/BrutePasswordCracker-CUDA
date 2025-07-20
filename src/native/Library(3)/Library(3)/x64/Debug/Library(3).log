@@ -1,15 +1,3 @@
-﻿  Compiling CUDA source file ..\..\bruteforce_kernel.cu...
-  
-  C:\Users\samoi\IdeaProjects\BrutePasswordCrackerCUDA\src\native\Library(3)\Library(3)>"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.9\bin\nvcc.exe" -gencode=arch=compute_52,code=\"sm_52,compute_52\" --use-local-env -ccbin "C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\bin\HostX64\x64" -x cu   -I"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.9\include" -I"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.9\include"  -G   --keep-dir x64\Debug  -maxrregcount=0    --machine 64 --compile -cudart static  -g  -D_DEBUG -DLIBRARY3_EXPORTS -D_WINDOWS -D_USRDLL -D_WINDLL -D_UNICODE -DUNICODE -Xcompiler "/EHsc /W3 /nologo /Od /FS /Zi /RTC1 /MDd " -Xcompiler "/Fdx64\Debug\vc143.pdb" -o C:\Users\samoi\IdeaProjects\BrutePasswordCrackerCUDA\src\native\Library(3)\Library(3)\x64\Debug\bruteforce_kernel.cu.obj "C:\Users\samoi\IdeaProjects\BrutePasswordCrackerCUDA\src\native\bruteforce_kernel.cu" 
-C:\Users\samoi\IdeaProjects\BrutePasswordCrackerCUDA\src\native\bruteforce_kernel.cu(2): error : this declaration has no storage class or type specifier
-    bruteforce_kernel.cu
-    ^
-  
-C:\Users\samoi\IdeaProjects\BrutePasswordCrackerCUDA\src\native\bruteforce_kernel.cu(2): error : expected a ";"
-    bruteforce_kernel.cu
-                     ^
-  
-  2 errors detected in the compilation of "C:/Users/samoi/IdeaProjects/BrutePasswordCrackerCUDA/src/native/bruteforce_kernel.cu".
-CUDACOMPILE : nvcc warning : Support for offline compilation for architectures prior to '<compute/sm/lto>_75' will be removed in a future release (Use -Wno-deprecated-gpu-targets to suppress warning).
-  bruteforce_kernel.cu
-C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\BuildCustomizations\CUDA 12.9.targets(801,9): error MSB3721: The command ""C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.9\bin\nvcc.exe" -gencode=arch=compute_52,code=\"sm_52,compute_52\" --use-local-env -ccbin "C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\bin\HostX64\x64" -x cu   -I"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.9\include" -I"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.9\include"  -G   --keep-dir x64\Debug  -maxrregcount=0    --machine 64 --compile -cudart static  -g  -D_DEBUG -DLIBRARY3_EXPORTS -D_WINDOWS -D_USRDLL -D_WINDLL -D_UNICODE -DUNICODE -Xcompiler "/EHsc /W3 /nologo /Od /FS /Zi /RTC1 /MDd " -Xcompiler "/Fdx64\Debug\vc143.pdb" -o C:\Users\samoi\IdeaProjects\BrutePasswordCrackerCUDA\src\native\Library(3)\Library(3)\x64\Debug\bruteforce_kernel.cu.obj "C:\Users\samoi\IdeaProjects\BrutePasswordCrackerCUDA\src\native\bruteforce_kernel.cu"" exited with code 2.
+﻿  bruteforce_cuda.cpp
+     Creating library C:\Users\samoi\IdeaProjects\BrutePasswordCrackerCUDA\src\native\Library(3)\x64\Debug\bruteforce.lib and object C:\Users\samoi\IdeaProjects\BrutePasswordCrackerCUDA\src\native\Library(3)\x64\Debug\bruteforce.exp
+  Library(3).vcxproj -> C:\Users\samoi\IdeaProjects\BrutePasswordCrackerCUDA\src\native\Library(3)\x64\Debug\bruteforce.dll

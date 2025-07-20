@@ -2,7 +2,7 @@ package org.example;
 
 public class NativeCracker {
     static {
-        System.loadLibrary("BruteForceCudaNative"); // Will link to the native DLL
+        System.load("C:\\Users\\samoi\\IdeaProjects\\BrutePasswordCrackerCUDA\\src\\native\\Library(3)\\x64\\Debug\\bruteforce.dll");
     }
 
     // Brute-force version with mask support

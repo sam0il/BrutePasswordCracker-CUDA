@@ -431806,4 +431806,6 @@ static __inline __declspec(__host__) cudaError_t cudaLibraryGetUnifiedFunction(T
 __declspec(__global__) void testKernel(int* a, int* b, int* c) {
     int idx = threadIdx.x;
     c[idx] = a[idx] + b[idx];
+    
+    
 }

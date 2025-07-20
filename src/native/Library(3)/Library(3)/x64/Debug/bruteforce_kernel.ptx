@@ -47,7 +47,7 @@ $L__tmp1:
 	shl.b64 	%rd11, %rd10, 2;
 	add.s64 	%rd12, %rd3, %rd11;
 	st.u32 	[%rd12], %r5;
-	.loc	1 9 1
+	.loc	1 11 1
 	ret;
 $L__tmp2:
 $L__func_end0:
