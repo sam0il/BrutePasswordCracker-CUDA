@@ -27991,20 +27991,84 @@ __declspec(dllimport) int __cdecl rmtmp();
 }__pragma( pack ( pop )) 
 #line 2447
 #pragma warning(pop)
-#line 6 "C:\\Users\\samoi\\IdeaProjects\\BrutePasswordCrackerCUDA\\src\\native\\bruteforce_kernel.cu"
- __noinline__ void testKernel(int *a, int *b, int *c) ;
+#line 7 "C:\\Users\\samoi\\IdeaProjects\\BrutePasswordCrackerCUDA\\src\\native\\Library(3)\\Library(3)\\md5.h"
+void md5(const char * input, char * output); 
+#line 7 "C:\\Users\\samoi\\IdeaProjects\\BrutePasswordCrackerCUDA\\src\\native\\bruteforce_kernel.cu"
+bool matchHash(const char *attempt, const char *targetHash) {int volatile ___ = 1;(void)attempt;(void)targetHash;::exit(___);}
 #if 0
-#line 6
-{ 
 #line 7
-int idx = __device_builtin_variable_threadIdx.x; 
+{ 
 #line 8
-(c[idx]) = ((a[idx]) + (b[idx])); 
+char result[33]; 
+#line 9
+md5(attempt, result); 
+#line 10
+for (int i = 0; i < 32; ++i) { 
 #line 11
+if ((result[i]) != (targetHash[i])) { 
+#line 12
+return false; }  }  
+#line 13
+return true; 
+#line 14
+} 
+#endif
+#line 16 "C:\\Users\\samoi\\IdeaProjects\\BrutePasswordCrackerCUDA\\src\\native\\bruteforce_kernel.cu"
+ __noinline__ void kernel_brute_force(const char *hash, const char *charset, int charsetLen, const char *mask, int maskLen, char *output, bool *found, unsigned __int64 startIndex) ;
+#if 0
+#line 16
+{ 
+#line 17
+unsigned __int64 idx = ((__device_builtin_variable_threadIdx.x) + ((__device_builtin_variable_blockIdx.x) * (__device_builtin_variable_blockDim.x))) + startIndex; 
+#line 18
+if (*found) { return; }  
+#line 20
+char attempt[16 + 1] = {(0)}; 
+#line 21
+unsigned __int64 temp = idx; 
+#line 24
+for (int i = maskLen - 1; i >= 0; --i) { 
+#line 25
+if ((mask[i]) == ('\?')) { 
+#line 26
+(attempt[i]) = (charset[temp % charsetLen]); 
+#line 27
+temp /= charsetLen; 
+#line 28
+} else 
+#line 29
+{ 
+#line 30
+(attempt[i]) = (mask[i]); 
+#line 31
+}  
+#line 32
+}  
+#line 34
+if (matchHash(attempt, hash)) { 
+#line 35
+(*found) = true; 
+#line 36
+for (int i = 0; i < maskLen; ++i) { 
+#line 37
+(output[i]) = (attempt[i]); }  
+#line 38
+(output[maskLen]) = '\000'; 
+#line 39
+printf("[MATCH FOUND] Thread %llu found password: %s\n", idx, attempt); 
+#line 40
+}  
+#line 42
+if (((idx % (1000)) == (0)) && (!(*found))) { 
+#line 43
+printf("[DEBUG] Thread %llu trying: %s\n", idx, attempt); 
+#line 44
+}  
+#line 45
 } 
 #endif
 #line 1 "bruteforce_kernel.cudafe1.stub.c"
-#define _NV_ANON_NAMESPACE _GLOBAL__N__6c268f5c_20_bruteforce_kernel_cu_2807695c
+#define _NV_ANON_NAMESPACE _GLOBAL__N__6c268f5c_20_bruteforce_kernel_cu_2dc33ce8
 #ifdef _NV_ANON_NAMESPACE
 #endif
 #pragma pack()

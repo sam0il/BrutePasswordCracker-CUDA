@@ -1,7 +1,23 @@
 typedef char __nv_bool;
+#line 617 "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.20348.0\\ucrt\\corecrt.h"
+struct __crt_locale_pointers;
+#line 28 "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.20348.0\\ucrt\\corecrt_wstdio.h"
+struct _iobuf;
+#line 192 "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\include\\vadefs.h"
+struct _Z39__vcrt_assert_va_start_is_not_referenceIKPKcE;
 #line 188 "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\include\\vcruntime.h"
 typedef unsigned long long size_t;
 #include "crt/device_runtime.h"
+#line 72 "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\include\\vadefs.h"
+typedef char *va_list;
+#line 623 "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.20348.0\\ucrt\\corecrt.h"
+typedef struct __crt_locale_pointers *_locale_t;
+#line 31 "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.20348.0\\ucrt\\corecrt_wstdio.h"
+typedef struct _iobuf FILE;
+#pragma pack(8)
+#line 192 "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\include\\vadefs.h"
+struct _Z39__vcrt_assert_va_start_is_not_referenceIKPKcE {char __nv_no_debug_dummy_end_padding_0;};
+#pragma pack()
 #if !defined(__CUDABE__)
 #endif
 #if !defined(__CUDABE__)
@@ -12,8 +28,16 @@ typedef unsigned long long size_t;
 #endif
 #if !defined(__CUDABE__)
 #endif
-#line 6 "C:\\Users\\samoi\\IdeaProjects\\BrutePasswordCrackerCUDA\\src\\native\\bruteforce_kernel.cu"
-__global__ __var_used__ extern void _Z10testKernelPiS_S_(int *, int *, int *);
+#if !defined(__CUDABE__)
+#line 950 "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.20348.0\\ucrt\\stdio.h"
+ __device_builtin__ ___device__(extern  __no_sc__) int printf(const char *const, ...);
+#endif
+#line 7 "C:\\Users\\samoi\\IdeaProjects\\BrutePasswordCrackerCUDA\\src\\native\\Library(3)\\Library(3)\\md5.h"
+___device__(extern  __no_sc__) void _Z3md5PKcPc(const char *, char *);
+#line 7 "C:\\Users\\samoi\\IdeaProjects\\BrutePasswordCrackerCUDA\\src\\native\\bruteforce_kernel.cu"
+___device__(extern  __no_sc__) __nv_bool _Z9matchHashPKcS0_(const char *, const char *);
+#line 16 "C:\\Users\\samoi\\IdeaProjects\\BrutePasswordCrackerCUDA\\src\\native\\bruteforce_kernel.cu"
+__global__ __var_used__ extern void _Z18kernel_brute_forcePKcS0_iS0_iPcPby(const char *, const char *, int, const char *, int, char *, __nv_bool *, unsigned long long);
 #include "common_functions.h"
 #if !defined(__CUDABE__)
 #endif
@@ -25,21 +49,133 @@ __global__ __var_used__ extern void _Z10testKernelPiS_S_(int *, int *, int *);
 #endif
 #if !defined(__CUDABE__)
 #endif
-#line 6 "C:\\Users\\samoi\\IdeaProjects\\BrutePasswordCrackerCUDA\\src\\native\\bruteforce_kernel.cu"
-__global__ __var_used__ void _Z10testKernelPiS_S_(
-#line 6 "C:\\Users\\samoi\\IdeaProjects\\BrutePasswordCrackerCUDA\\src\\native\\bruteforce_kernel.cu"
-int *a, 
-#line 6 "C:\\Users\\samoi\\IdeaProjects\\BrutePasswordCrackerCUDA\\src\\native\\bruteforce_kernel.cu"
-int *b, 
-#line 6 "C:\\Users\\samoi\\IdeaProjects\\BrutePasswordCrackerCUDA\\src\\native\\bruteforce_kernel.cu"
-int *c){
-#line 6 "C:\\Users\\samoi\\IdeaProjects\\BrutePasswordCrackerCUDA\\src\\native\\bruteforce_kernel.cu"
+#if !defined(__CUDABE__)
+#endif
+#line 7 "C:\\Users\\samoi\\IdeaProjects\\BrutePasswordCrackerCUDA\\src\\native\\bruteforce_kernel.cu"
+___device__( __no_sc__) __nv_bool _Z9matchHashPKcS0_(
+#line 7 "C:\\Users\\samoi\\IdeaProjects\\BrutePasswordCrackerCUDA\\src\\native\\bruteforce_kernel.cu"
+const char *attempt, 
+#line 7 "C:\\Users\\samoi\\IdeaProjects\\BrutePasswordCrackerCUDA\\src\\native\\bruteforce_kernel.cu"
+const char *targetHash){
+#line 7 "C:\\Users\\samoi\\IdeaProjects\\BrutePasswordCrackerCUDA\\src\\native\\bruteforce_kernel.cu"
 {
-#line 7 "C:\\Users\\samoi\\IdeaProjects\\BrutePasswordCrackerCUDA\\src\\native\\bruteforce_kernel.cu"
- int __cuda_local_var_431807_9_non_const_idx;
-#line 7 "C:\\Users\\samoi\\IdeaProjects\\BrutePasswordCrackerCUDA\\src\\native\\bruteforce_kernel.cu"
-__cuda_local_var_431807_9_non_const_idx = ((int)(threadIdx.x));
 #line 8 "C:\\Users\\samoi\\IdeaProjects\\BrutePasswordCrackerCUDA\\src\\native\\bruteforce_kernel.cu"
-(c[__cuda_local_var_431807_9_non_const_idx]) = ((a[__cuda_local_var_431807_9_non_const_idx]) + (b[__cuda_local_var_431807_9_non_const_idx])); 
+ char __cuda_local_var_429107_10_non_const_result[33];
+#line 9 "C:\\Users\\samoi\\IdeaProjects\\BrutePasswordCrackerCUDA\\src\\native\\bruteforce_kernel.cu"
+_Z3md5PKcPc(attempt, (__cuda_local_var_429107_10_non_const_result));
+#line 10 "C:\\Users\\samoi\\IdeaProjects\\BrutePasswordCrackerCUDA\\src\\native\\bruteforce_kernel.cu"
+{
+#line 10 "C:\\Users\\samoi\\IdeaProjects\\BrutePasswordCrackerCUDA\\src\\native\\bruteforce_kernel.cu"
+ int i;
+#line 10 "C:\\Users\\samoi\\IdeaProjects\\BrutePasswordCrackerCUDA\\src\\native\\bruteforce_kernel.cu"
+i = 0;
+#line 10 "C:\\Users\\samoi\\IdeaProjects\\BrutePasswordCrackerCUDA\\src\\native\\bruteforce_kernel.cu"
+for (; i < 32; ++i) {
 #line 11 "C:\\Users\\samoi\\IdeaProjects\\BrutePasswordCrackerCUDA\\src\\native\\bruteforce_kernel.cu"
+if (((int)((__cuda_local_var_429107_10_non_const_result)[i])) != ((int)(targetHash[i]))) {
+#line 12 "C:\\Users\\samoi\\IdeaProjects\\BrutePasswordCrackerCUDA\\src\\native\\bruteforce_kernel.cu"
+return ((__nv_bool)0); } } }
+#line 13 "C:\\Users\\samoi\\IdeaProjects\\BrutePasswordCrackerCUDA\\src\\native\\bruteforce_kernel.cu"
+return ((__nv_bool)1);
+#line 14 "C:\\Users\\samoi\\IdeaProjects\\BrutePasswordCrackerCUDA\\src\\native\\bruteforce_kernel.cu"
+}}
+#line 16 "C:\\Users\\samoi\\IdeaProjects\\BrutePasswordCrackerCUDA\\src\\native\\bruteforce_kernel.cu"
+__global__ __var_used__ void _Z18kernel_brute_forcePKcS0_iS0_iPcPby(
+#line 16 "C:\\Users\\samoi\\IdeaProjects\\BrutePasswordCrackerCUDA\\src\\native\\bruteforce_kernel.cu"
+const char *hash, 
+#line 16 "C:\\Users\\samoi\\IdeaProjects\\BrutePasswordCrackerCUDA\\src\\native\\bruteforce_kernel.cu"
+const char *charset, 
+#line 16 "C:\\Users\\samoi\\IdeaProjects\\BrutePasswordCrackerCUDA\\src\\native\\bruteforce_kernel.cu"
+int charsetLen, 
+#line 16 "C:\\Users\\samoi\\IdeaProjects\\BrutePasswordCrackerCUDA\\src\\native\\bruteforce_kernel.cu"
+const char *mask, 
+#line 16 "C:\\Users\\samoi\\IdeaProjects\\BrutePasswordCrackerCUDA\\src\\native\\bruteforce_kernel.cu"
+int maskLen, 
+#line 16 "C:\\Users\\samoi\\IdeaProjects\\BrutePasswordCrackerCUDA\\src\\native\\bruteforce_kernel.cu"
+char *output, 
+#line 16 "C:\\Users\\samoi\\IdeaProjects\\BrutePasswordCrackerCUDA\\src\\native\\bruteforce_kernel.cu"
+__nv_bool *found, 
+#line 16 "C:\\Users\\samoi\\IdeaProjects\\BrutePasswordCrackerCUDA\\src\\native\\bruteforce_kernel.cu"
+unsigned long long startIndex){
+#line 16 "C:\\Users\\samoi\\IdeaProjects\\BrutePasswordCrackerCUDA\\src\\native\\bruteforce_kernel.cu"
+{
+#line 17 "C:\\Users\\samoi\\IdeaProjects\\BrutePasswordCrackerCUDA\\src\\native\\bruteforce_kernel.cu"
+ unsigned long long __cuda_local_var_429116_24_non_const_idx;
+#line 20 "C:\\Users\\samoi\\IdeaProjects\\BrutePasswordCrackerCUDA\\src\\native\\bruteforce_kernel.cu"
+ char __cuda_local_var_429119_10_non_const_attempt[17];
+#line 21 "C:\\Users\\samoi\\IdeaProjects\\BrutePasswordCrackerCUDA\\src\\native\\bruteforce_kernel.cu"
+ unsigned long long __cuda_local_var_429120_24_non_const_temp;
+#line 17 "C:\\Users\\samoi\\IdeaProjects\\BrutePasswordCrackerCUDA\\src\\native\\bruteforce_kernel.cu"
+__cuda_local_var_429116_24_non_const_idx = (((unsigned long long)((threadIdx.x) + ((blockIdx.x) * (blockDim.x)))) + startIndex);
+#line 18 "C:\\Users\\samoi\\IdeaProjects\\BrutePasswordCrackerCUDA\\src\\native\\bruteforce_kernel.cu"
+if (*found) {
+#line 18 "C:\\Users\\samoi\\IdeaProjects\\BrutePasswordCrackerCUDA\\src\\native\\bruteforce_kernel.cu"
+return; }
+#line 20 "C:\\Users\\samoi\\IdeaProjects\\BrutePasswordCrackerCUDA\\src\\native\\bruteforce_kernel.cu"
+memset((char *)&__cuda_local_var_429119_10_non_const_attempt, 0,sizeof(__cuda_local_var_429119_10_non_const_attempt));
+#line 20 "C:\\Users\\samoi\\IdeaProjects\\BrutePasswordCrackerCUDA\\src\\native\\bruteforce_kernel.cu"
+__cuda_local_var_429119_10_non_const_attempt[0] = ((char)0);
+#line 21 "C:\\Users\\samoi\\IdeaProjects\\BrutePasswordCrackerCUDA\\src\\native\\bruteforce_kernel.cu"
+__cuda_local_var_429120_24_non_const_temp = __cuda_local_var_429116_24_non_const_idx;
+#line 24 "C:\\Users\\samoi\\IdeaProjects\\BrutePasswordCrackerCUDA\\src\\native\\bruteforce_kernel.cu"
+{
+#line 24 "C:\\Users\\samoi\\IdeaProjects\\BrutePasswordCrackerCUDA\\src\\native\\bruteforce_kernel.cu"
+ int i;
+#line 24 "C:\\Users\\samoi\\IdeaProjects\\BrutePasswordCrackerCUDA\\src\\native\\bruteforce_kernel.cu"
+i = (maskLen - 1);
+#line 24 "C:\\Users\\samoi\\IdeaProjects\\BrutePasswordCrackerCUDA\\src\\native\\bruteforce_kernel.cu"
+for (; i >= 0; --i)
+#line 24 "C:\\Users\\samoi\\IdeaProjects\\BrutePasswordCrackerCUDA\\src\\native\\bruteforce_kernel.cu"
+{
+#line 25 "C:\\Users\\samoi\\IdeaProjects\\BrutePasswordCrackerCUDA\\src\\native\\bruteforce_kernel.cu"
+if (((int)(mask[i])) == 63)
+#line 25 "C:\\Users\\samoi\\IdeaProjects\\BrutePasswordCrackerCUDA\\src\\native\\bruteforce_kernel.cu"
+{
+#line 26 "C:\\Users\\samoi\\IdeaProjects\\BrutePasswordCrackerCUDA\\src\\native\\bruteforce_kernel.cu"
+((__cuda_local_var_429119_10_non_const_attempt)[i]) = (charset[(__cuda_local_var_429120_24_non_const_temp % ((unsigned long long)charsetLen))]);
+#line 27 "C:\\Users\\samoi\\IdeaProjects\\BrutePasswordCrackerCUDA\\src\\native\\bruteforce_kernel.cu"
+__cuda_local_var_429120_24_non_const_temp /= ((unsigned long long)charsetLen);
+#line 28 "C:\\Users\\samoi\\IdeaProjects\\BrutePasswordCrackerCUDA\\src\\native\\bruteforce_kernel.cu"
+}
+#line 29 "C:\\Users\\samoi\\IdeaProjects\\BrutePasswordCrackerCUDA\\src\\native\\bruteforce_kernel.cu"
+else 
+#line 29 "C:\\Users\\samoi\\IdeaProjects\\BrutePasswordCrackerCUDA\\src\\native\\bruteforce_kernel.cu"
+{
+#line 30 "C:\\Users\\samoi\\IdeaProjects\\BrutePasswordCrackerCUDA\\src\\native\\bruteforce_kernel.cu"
+((__cuda_local_var_429119_10_non_const_attempt)[i]) = (mask[i]);
+#line 31 "C:\\Users\\samoi\\IdeaProjects\\BrutePasswordCrackerCUDA\\src\\native\\bruteforce_kernel.cu"
+}
+#line 32 "C:\\Users\\samoi\\IdeaProjects\\BrutePasswordCrackerCUDA\\src\\native\\bruteforce_kernel.cu"
+} }
+#line 34 "C:\\Users\\samoi\\IdeaProjects\\BrutePasswordCrackerCUDA\\src\\native\\bruteforce_kernel.cu"
+if (_Z9matchHashPKcS0_(((const char *)(__cuda_local_var_429119_10_non_const_attempt)), hash))
+#line 34 "C:\\Users\\samoi\\IdeaProjects\\BrutePasswordCrackerCUDA\\src\\native\\bruteforce_kernel.cu"
+{
+#line 35 "C:\\Users\\samoi\\IdeaProjects\\BrutePasswordCrackerCUDA\\src\\native\\bruteforce_kernel.cu"
+(*found) = ((__nv_bool)1);
+#line 36 "C:\\Users\\samoi\\IdeaProjects\\BrutePasswordCrackerCUDA\\src\\native\\bruteforce_kernel.cu"
+{
+#line 36 "C:\\Users\\samoi\\IdeaProjects\\BrutePasswordCrackerCUDA\\src\\native\\bruteforce_kernel.cu"
+ int i;
+#line 36 "C:\\Users\\samoi\\IdeaProjects\\BrutePasswordCrackerCUDA\\src\\native\\bruteforce_kernel.cu"
+i = 0;
+#line 36 "C:\\Users\\samoi\\IdeaProjects\\BrutePasswordCrackerCUDA\\src\\native\\bruteforce_kernel.cu"
+for (; i < maskLen; ++i) {
+#line 37 "C:\\Users\\samoi\\IdeaProjects\\BrutePasswordCrackerCUDA\\src\\native\\bruteforce_kernel.cu"
+(output[i]) = ((__cuda_local_var_429119_10_non_const_attempt)[i]); } }
+#line 38 "C:\\Users\\samoi\\IdeaProjects\\BrutePasswordCrackerCUDA\\src\\native\\bruteforce_kernel.cu"
+(output[maskLen]) = ((char)0);
+#line 39 "C:\\Users\\samoi\\IdeaProjects\\BrutePasswordCrackerCUDA\\src\\native\\bruteforce_kernel.cu"
+printf(((const char *)"[MATCH FOUND] Thread %llu found password: %s\n"), __cuda_local_var_429116_24_non_const_idx, (__cuda_local_var_429119_10_non_const_attempt));
+#line 40 "C:\\Users\\samoi\\IdeaProjects\\BrutePasswordCrackerCUDA\\src\\native\\bruteforce_kernel.cu"
+}
+#line 42 "C:\\Users\\samoi\\IdeaProjects\\BrutePasswordCrackerCUDA\\src\\native\\bruteforce_kernel.cu"
+if (((__cuda_local_var_429116_24_non_const_idx % 1000ULL) == 0ULL) && (!(*found)))
+#line 42 "C:\\Users\\samoi\\IdeaProjects\\BrutePasswordCrackerCUDA\\src\\native\\bruteforce_kernel.cu"
+{
+#line 43 "C:\\Users\\samoi\\IdeaProjects\\BrutePasswordCrackerCUDA\\src\\native\\bruteforce_kernel.cu"
+printf(((const char *)"[DEBUG] Thread %llu trying: %s\n"), __cuda_local_var_429116_24_non_const_idx, (__cuda_local_var_429119_10_non_const_attempt));
+#line 44 "C:\\Users\\samoi\\IdeaProjects\\BrutePasswordCrackerCUDA\\src\\native\\bruteforce_kernel.cu"
+} 
+#line 45 "C:\\Users\\samoi\\IdeaProjects\\BrutePasswordCrackerCUDA\\src\\native\\bruteforce_kernel.cu"
 }}

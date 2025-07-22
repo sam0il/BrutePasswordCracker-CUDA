@@ -24,6 +24,10 @@
     <ClInclude Include="..\..\org_example_NativeCracker.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="md5.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\md5.cuh" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="dllmain.cpp">
@@ -32,11 +36,12 @@
     <ClCompile Include="pch.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\bruteforce_cuda.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <CudaCompile Include="..\..\bruteforce_kernel.cu" />
+    <CudaCompile Include="..\..\bruteforce_cuda.cpp">
+      <Filter>Source Files</Filter>
+    </CudaCompile>
+    <CudaCompile Include="..\..\md5.cu" />
   </ItemGroup>
 </Project>
