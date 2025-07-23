@@ -4,9 +4,7 @@ C:\Program Files (x86)\Windows Kits\10\Include\10.0.20348.0\ucrt\corecrt_math.h
 C:\Program Files (x86)\Windows Kits\10\Include\10.0.20348.0\ucrt\corecrt_memcpy_s.h
 C:\Program Files (x86)\Windows Kits\10\Include\10.0.20348.0\ucrt\corecrt_memory.h
 C:\Program Files (x86)\Windows Kits\10\Include\10.0.20348.0\ucrt\corecrt_search.h
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.20348.0\ucrt\corecrt_stdio_config.h
 C:\Program Files (x86)\Windows Kits\10\Include\10.0.20348.0\ucrt\corecrt_wctype.h
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.20348.0\ucrt\corecrt_wstdio.h
 C:\Program Files (x86)\Windows Kits\10\Include\10.0.20348.0\ucrt\corecrt_wstdlib.h
 C:\Program Files (x86)\Windows Kits\10\Include\10.0.20348.0\ucrt\corecrt_wstring.h
 C:\Program Files (x86)\Windows Kits\10\Include\10.0.20348.0\ucrt\corecrt_wtime.h
@@ -15,7 +13,6 @@ C:\Program Files (x86)\Windows Kits\10\Include\10.0.20348.0\ucrt\ctype.h
 C:\Program Files (x86)\Windows Kits\10\Include\10.0.20348.0\ucrt\errno.h
 C:\Program Files (x86)\Windows Kits\10\Include\10.0.20348.0\ucrt\math.h
 C:\Program Files (x86)\Windows Kits\10\Include\10.0.20348.0\ucrt\stddef.h
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.20348.0\ucrt\stdio.h
 C:\Program Files (x86)\Windows Kits\10\Include\10.0.20348.0\ucrt\stdlib.h
 C:\Program Files (x86)\Windows Kits\10\Include\10.0.20348.0\ucrt\string.h
 C:\Program Files (x86)\Windows Kits\10\Include\10.0.20348.0\ucrt\time.h
@@ -83,4 +80,3 @@ C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.9\include\texture_types.h
 C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.9\include\vector_functions.h
 C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.9\include\vector_functions.hpp
 C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.9\include\vector_types.h
-C:\Users\samoi\IdeaProjects\BrutePasswordCrackerCUDA\src\native\md5.cuh

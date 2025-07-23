@@ -27991,84 +27991,218 @@ __declspec(dllimport) int __cdecl rmtmp();
 }__pragma( pack ( pop )) 
 #line 2447
 #pragma warning(pop)
-#line 7 "C:\\Users\\samoi\\IdeaProjects\\BrutePasswordCrackerCUDA\\src\\native\\Library(3)\\Library(3)\\md5.h"
-void md5(const char * input, char * output); 
-#line 7 "C:\\Users\\samoi\\IdeaProjects\\BrutePasswordCrackerCUDA\\src\\native\\bruteforce_kernel.cu"
-bool matchHash(const char *attempt, const char *targetHash) {int volatile ___ = 1;(void)attempt;(void)targetHash;::exit(___);}
+#line 20 "C:\\Users\\samoi\\IdeaProjects\\BrutePasswordCrackerCUDA\\src\\native\\md5.cuh"
+inline void md5(const char *input, int input_len, char *output) {int volatile ___ = 1;(void)input;(void)input_len;(void)output;::exit(___);}
 #if 0
-#line 7
+#line 20
 { 
-#line 8
-char result[33]; 
-#line 9
-md5(attempt, result); 
-#line 10
-for (int i = 0; i < 32; ++i) { 
-#line 11
-if ((result[i]) != (targetHash[i])) { 
-#line 12
-return false; }  }  
-#line 13
-return true; 
-#line 14
+#line 22
+const uint32_t S[64] = {(7), (12), (17), (22), (7), (12), (17), (22), (7), (12), (17), (22), (7), (12), (17), (22), (5), (9), (14), (20), (5), (9), (14), (20), (5), (9), (14), (20), (5), (9), (14), (20), (4), (11), (16), (23), (4), (11), (16), (23), (4), (11), (16), (23), (4), (11), (16), (23), (6), (10), (15), (21), (6), (10), (15), (21), (6), (10), (15), (21), (6), (10), (15), (21)}; 
+#line 30
+const uint32_t K[64] = {3614090360U, 3905402710U, (606105819), 3250441966U, 4118548399U, (1200080426), 2821735955U, 4249261313U, (1770035416), 2336552879U, 4294925233U, 2304563134U, (1804603682), 4254626195U, 2792965006U, (1236535329), 4129170786U, 3225465664U, (643717713), 3921069994U, 3593408605U, (38016083), 3634488961U, 3889429448U, (568446438), 3275163606U, 4107603335U, (1163531501), 2850285829U, 4243563512U, (1735328473), 2368359562U, 4294588738U, 2272392833U, (1839030562), 4259657740U, 2763975236U, (1272893353), 4139469664U, 3200236656U, (681279174), 3936430074U, 3572445317U, (76029189), 3654602809U, 3873151461U, (530742520), 3299628645U, 4096336452U, (1126891415), 2878612391U, 4237533241U, (1700485571), 2399980690U, 4293915773U, 2240044497U, (1873313359), 4264355552U, 2734768916U, (1309151649), 4149444226U, 3174756917U, (718787259), 3951481745U}; 
+#line 53
+uint8_t buffer[64] = {(0)}; 
+#line 54
+uint32_t block[16] = {(0)}; 
+#line 58
+uint32_t a0 = (1732584193); 
+#line 59
+uint32_t b0 = 4023233417U; 
+#line 60
+uint32_t c0 = 2562383102U; 
+#line 61
+uint32_t d0 = (271733878); 
+#line 65
+for (int i = 0; i < input_len; i++) { 
+#line 66
+(buffer[i]) = (input[i]); 
+#line 67
+}  
+#line 70
+(buffer[input_len]) = (128); 
+#line 73
+uint64_t bit_len = input_len * 8; 
+#line 74
+for (int i = 0; i < 8; i++) { 
+#line 75
+(buffer[56 + i]) = ((bit_len >> (i * 8)) & (255)); 
+#line 76
+}  
+#line 79
+for (int i = 0; i < 16; i++) { 
+#line 80
+(block[i]) = (((((buffer[(i * 4) + 3]) << 24) | ((buffer[(i * 4) + 2]) << 16)) | ((buffer[(i * 4) + 1]) << 8)) | (buffer[i * 4])); 
+#line 82
+}  
+#line 85
+uint32_t A = a0, B = b0, C = c0, D = d0; 
+#line 88
+for (int i = 0; i < 64; i++) { 
+#line 89
+uint32_t F, g; 
+#line 92
+if (i < 16) { 
+#line 93
+F = ((B & C) | ((~B) & D)); 
+#line 94
+g = i; 
+#line 95
+} else { 
+#line 97
+if (i < 32) { 
+#line 98
+F = ((D & B) | ((~D) & C)); 
+#line 99
+g = (((5 * i) + 1) % 16); 
+#line 100
+} else { 
+#line 102
+if (i < 48) { 
+#line 103
+F = ((B ^ C) ^ D); 
+#line 104
+g = (((3 * i) + 5) % 16); 
+#line 105
+} else 
+#line 107
+{ 
+#line 108
+F = (C ^ (B | (~D))); 
+#line 109
+g = ((7 * i) % 16); 
+#line 110
+}  }  }  
+#line 113
+F = (((F + A) + (K[i])) + (block[g])); 
+#line 114
+A = D; 
+#line 115
+D = C; 
+#line 116
+C = B; 
+#line 117
+B = (B + ((F << (S[i])) | (F >> ((32) - (S[i]))))); 
+#line 118
+}  
+#line 122
+a0 += A; 
+#line 123
+b0 += B; 
+#line 124
+c0 += C; 
+#line 125
+d0 += D; 
+#line 128
+const char hex_chars[] = "0123456789abcdef"; 
+#line 129
+for (int i = 0; i < 4; i++) { 
+#line 130
+uint32_t val = (i == 0) ? a0 : ((i == 1) ? b0 : ((i == 2) ? c0 : d0)); 
+#line 131
+for (int j = 0; j < 8; j++) { 
+#line 132
+int hex_index = (val >> (4 * (7 - j))) & (15); 
+#line 133
+(output[(i * 8) + j]) = (hex_chars[hex_index]); 
+#line 134
+}  
+#line 135
+}  
+#line 136
+(output[32]) = '\000'; 
+#line 137
 } 
 #endif
-#line 16 "C:\\Users\\samoi\\IdeaProjects\\BrutePasswordCrackerCUDA\\src\\native\\bruteforce_kernel.cu"
- __noinline__ void kernel_brute_force(const char *hash, const char *charset, int charsetLen, const char *mask, int maskLen, char *output, bool *found, unsigned __int64 startIndex) ;
+#line 15 "C:\\Users\\samoi\\IdeaProjects\\BrutePasswordCrackerCUDA\\src\\native\\bruteforce_kernel.cu"
+bool matchHash(const char *attempt, int len, const char *targetHash) {int volatile ___ = 1;(void)attempt;(void)len;(void)targetHash;::exit(___);}
 #if 0
+#line 15
+{ 
 #line 16
-{ 
-#line 17
-unsigned __int64 idx = ((__device_builtin_variable_threadIdx.x) + ((__device_builtin_variable_blockIdx.x) * (__device_builtin_variable_blockDim.x))) + startIndex; 
-#line 18
-if (*found) { return; }  
-#line 20
-char attempt[16 + 1] = {(0)}; 
-#line 21
-unsigned __int64 temp = idx; 
+char result[33]; 
+#line 19
+md5(attempt, len, result); 
+#line 22
+for (int i = 0; i < 32; ++i) { 
+#line 23
+if ((result[i]) != (targetHash[i])) { 
 #line 24
-for (int i = maskLen - 1; i >= 0; --i) { 
+return false; 
 #line 25
-if ((mask[i]) == ('\?')) { 
+}  
 #line 26
-(attempt[i]) = (charset[temp % charsetLen]); 
+}  
 #line 27
-temp /= charsetLen; 
+return true; 
 #line 28
-} else 
-#line 29
+} 
+#endif
+#line 47 "C:\\Users\\samoi\\IdeaProjects\\BrutePasswordCrackerCUDA\\src\\native\\bruteforce_kernel.cu"
+ __noinline__ void kernel_brute_force(const char *
+#line 48
+hash, const char *
+#line 49
+charset, int 
+#line 50
+charsetLen, const char *
+#line 51
+mask, int 
+#line 52
+maskLen, char *
+#line 53
+output, bool *
+#line 54
+found, unsigned __int64 
+#line 55
+startIndex) ;
+#if 0
+#line 56
 { 
-#line 30
+#line 58
+unsigned __int64 idx = ((__device_builtin_variable_threadIdx.x) + ((__device_builtin_variable_blockIdx.x) * (__device_builtin_variable_blockDim.x))) + startIndex; 
+#line 61
+if (*found) { return; }  
+#line 64
+char attempt[16 + 1] = {(0)}; 
+#line 65
+unsigned __int64 temp = idx; 
+#line 68
+for (int i = maskLen - 1; i >= 0; --i) { 
+#line 69
+if ((mask[i]) == ('\?')) { 
+#line 71
+(attempt[i]) = (charset[temp % charsetLen]); 
+#line 72
+temp /= charsetLen; 
+#line 73
+} else 
+#line 74
+{ 
+#line 76
 (attempt[i]) = (mask[i]); 
-#line 31
+#line 77
 }  
-#line 32
+#line 78
 }  
-#line 34
-if (matchHash(attempt, hash)) { 
-#line 35
+#line 81
+if (matchHash(attempt, maskLen, hash)) { 
+#line 82
 (*found) = true; 
-#line 36
+#line 85
 for (int i = 0; i < maskLen; ++i) { 
-#line 37
-(output[i]) = (attempt[i]); }  
-#line 38
+#line 86
+(output[i]) = (attempt[i]); 
+#line 87
+}  
+#line 88
 (output[maskLen]) = '\000'; 
-#line 39
-printf("[MATCH FOUND] Thread %llu found password: %s\n", idx, attempt); 
-#line 40
+#line 89
 }  
-#line 42
-if (((idx % (1000)) == (0)) && (!(*found))) { 
-#line 43
-printf("[DEBUG] Thread %llu trying: %s\n", idx, attempt); 
-#line 44
-}  
-#line 45
+#line 90
 } 
 #endif
 #line 1 "bruteforce_kernel.cudafe1.stub.c"
-#define _NV_ANON_NAMESPACE _GLOBAL__N__6c268f5c_20_bruteforce_kernel_cu_2dc33ce8
+#define _NV_ANON_NAMESPACE _GLOBAL__N__6c268f5c_20_bruteforce_kernel_cu_b048104a
 #ifdef _NV_ANON_NAMESPACE
 #endif
 #pragma pack()
